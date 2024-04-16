@@ -12,7 +12,7 @@ const Section1 = () => {
         <Button className='mt-12 px-10'>Get Started</Button>
 
         <div className='mt-5'>
-          <Image src="section1.svg" width={1000} height={100} alt='section1'></Image>
+          <Image src="section1.svg" width={1000} height={100} alt='section1' priority={true}></Image>
         </div>
       </div>
     </>
