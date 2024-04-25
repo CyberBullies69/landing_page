@@ -1,21 +1,64 @@
+'use client'
 import Image from "next/image";
 import { Button } from "./ui/button";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
+const formSchema = z.object({
+  email: z.string().min(2, {
+    message: "email must be at least 2 characters.",
+  }),
+});
 
 const Section2 = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
   return (
     <>
       <div className="flex flex-col justify-center items-center mt-20">
         <h1 className="text-black font-bold text-5xl">
           Empowering Healthcare Connections
         </h1>
-        <h1 className="text-blue-600 font-bold text-5xl">
+        <h1 className="text-indigo-700 font-bold text-5xl">
           Discover Our Innovative Platform Services
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-16">
           <div className="flex items-center justify-center p-6 max-w-xl">
             <div className="rounded-xl px-6 text-center bg-yellow-50">
-              <h1 className="text-blue-600 font-bold text-3xl mt-14 mb-2">
+              <h1 className="text-indigo-700 font-bold text-3xl mt-14 mb-2">
                 Find Job
               </h1>
               <p>
@@ -34,7 +77,7 @@ const Section2 = () => {
           </div>
           <div className="flex items-center justify-center p-6 max-w-xl">
             <div className="rounded-xl px-6 text-center bg-cyan-200">
-              <h1 className="text-blue-600 font-bold text-3xl mt-14 mb-2">
+              <h1 className="text-indigo-700 font-bold text-3xl mt-14 mb-2">
                 Find Job
               </h1>
               <p>
@@ -54,15 +97,56 @@ const Section2 = () => {
         </div>
 
         <div className="p-6 max-w-6xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-blue-200 rounded-xl">
-              <div className="p-6 max-w-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white rounded-xl">
+              <div className="p-6 max-w-xl ">
                   <h1 className="text-black font-bold text-3xl mt-14 mb-2">
-                    <span className="text-blue-600">Streamline Hiring</span><br /> Processes and Access Top Talent. 
+                    <span className="text-indigo-700">Streamline Hiring</span><br /> Processes and Access Top Talent. 
                   </h1>
-                  <p>Effortlessly connect with qualified healthcare professionals on our platform. Filter candidates by specialty and location. Streamline recruitment, manage workforce, and access valuable resources for organizational success.  
+                  <p className="mb-8">Effortlessly connect with qualified healthcare professionals on our platform. Filter candidates by specialty and location. Streamline recruitment, manage workforce, and access valuable resources for organizational success.  
                   </p>
 
-                  <Button className="mt-10 p-6">Get Started For Free Now</Button>
+                  <Drawer>
+        <DrawerTrigger>
+          <span className="bg-indigo-600 p-3 text-white rounded h-2 ">Join The Waitlist</span>
+        </DrawerTrigger>
+        <DrawerContent className="flex justify-center items-center">
+        <div className="flex flex-row justify-between gap-x-[350px] mb-5  ">
+          <div>
+            <h1 className="text-xl font-semibold">Doc<span className="text-indigo-700">Link</span></h1>
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold">Join The WaitList</h1>
+          </div>
+        </div>
+          <div className="max-w-4xl">
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8"
+              >
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Email ID" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <DrawerFooter className="flex flex-row justify-center gap-x-[120px] ">
+                  <Button type="submit">Submit</Button>
+                  <DrawerClose>
+                    <Button variant="outline">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </form>
+            </Form>
+          </div>
+        </DrawerContent>
+      </Drawer>
               </div>
               <div>
                 <Image

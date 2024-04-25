@@ -55,20 +55,17 @@ export const Navbar = () => {
 
       <Drawer>
         <DrawerTrigger>
-          {/* <Button className="bg-indigo-600">Join The Waitlist</Button> */}
           <span className="bg-indigo-600 p-3 text-white rounded h-2">Join The Waitlist</span>
         </DrawerTrigger>
         <DrawerContent className="flex justify-center items-center">
-          {/* <DrawerHeader>
-            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-            <DrawerDescription>This action cannot be undone.</DrawerDescription>
-          </DrawerHeader>
-          <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter> */}
+        <div className="flex flex-row justify-between gap-x-[350px] mb-5  ">
+          <div>
+            <h1 className="text-xl font-semibold">Doc<span className="text-indigo-700">Link</span></h1>
+          </div>
+          <div>
+            <h1 className="text-xl font-semibold">Join The WaitList</h1>
+          </div>
+        </div>
           <div className="max-w-4xl">
             <Form {...form}>
               <form
@@ -80,7 +77,6 @@ export const Navbar = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
                       <FormControl>
                         <Input placeholder="Email ID" {...field} />
                       </FormControl>
@@ -88,7 +84,7 @@ export const Navbar = () => {
                     </FormItem>
                   )}
                 />
-                <DrawerFooter>
+                <DrawerFooter className="flex flex-row justify-center gap-x-[120px] ">
                   <Button type="submit">Submit</Button>
                   <DrawerClose>
                     <Button variant="outline">Cancel</Button>
