@@ -81,7 +81,7 @@ const Section2 = () => {
                 Find Job
               </h1>
               <p>
-                Explore job opportunities, connect with colleagues,
+                Explore nationwide job opportunities, connect with colleagues,
                 access continuing education, and launch a freelance career with
                 ease. Join us to propel your healthcare career to new heights.
               </p>
