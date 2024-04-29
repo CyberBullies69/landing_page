@@ -53,8 +53,8 @@ const Section1 = () => {
   return (
     <>
       <div className='flex flex-col justify-center items-center mt-5'>
-        <TextGenerateEffect className='text-black font-bold text-3xl lg:text-5xl mt-2' words={words} />
-        <TextGenerateEffect className='text-indigo-700 font-bold mt-2 text-3xl lg:text-5xl' words={words1} />
+        <TextGenerateEffect className='text-black font-bold text-xl md:text-3xl lg:text-5xl mt-2 ' words={words} />
+        <TextGenerateEffect className='text-indigo-700 font-bold mt-2 text-xl  md:text-3xl lg:text-5xl' words={words1} />
         <p className='max-w-screen-lg mt-2 text-center lg:px-4 px-10 mb-5'>At DocLink, we believe in revolutionizing the way healthcare is accessed and delivered. Our comprehensive platform caters to the needs of medical professionals and employers, providing a seamless and innovative solution for all stakeholders in the healthcare industry.</p>
         <Drawer>
         <DrawerTrigger>

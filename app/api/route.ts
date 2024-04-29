@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { userFirstname } = await request.json()
     await resend.emails.send({
         from: 'onboarding@resend.dev',
-        to: 'darshitrajvansh890@gmail.com',
+        to: 'email@doclink.tech',
         subject: "welcome",
         react: KoalaWelcomeEmail({
             userFirstname

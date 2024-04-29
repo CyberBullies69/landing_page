@@ -48,10 +48,10 @@ const Section2 = () => {
   return (
     <>
       <div className="flex flex-col justify-center items-center mt-20">
-        <h1 className="text-black font-bold text-3xl lg:text-5xl">
+        <h1 className="text-black font-bold text-xl md:text-3xl lg:text-5xl ">
           Empowering Healthcare Connections
         </h1>
-        <h1 className="text-indigo-700 font-bold text-3xl lg:text-5xl px-5">
+        <h1 className="text-indigo-700 font-bold text-xl md:text-3xl lg:text-5xl mt-2">
           Discover Our Innovative Platform Services
         </h1>
 
