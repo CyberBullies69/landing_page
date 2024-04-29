@@ -48,7 +48,7 @@ const Section1 = () => {
     // ✅ This will be type-safe and validated.
     console.log(values);
   }
-  const words = `Fuck u Healthcare Access for`;
+  const words = `Revolutionizing Healthcare Access for`;
   const words1 = `Professional and Employers`;
   return (
     <>
